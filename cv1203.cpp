@@ -7,7 +7,7 @@ int main()
 {
 	double x , y;
 	scanf("%lf%lf",&x,&y);
-	if(std::abs(x - y) < eps)
+	if(std::abs(x - y) <= eps)
 		puts("yes");
 	else
 		puts("no");
