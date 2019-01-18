@@ -2,22 +2,21 @@
 // template {{{1
 const int maxn = 1005, maxm = 1005*1005*2;
 const int inf = 1000000000;
-int to[maxm], cap[maxm], nxt[maxm], p = 1;
-int level[maxn], head[maxn], Head[maxn];
+int head[maxn], Head[maxn], level[maxn];
+int nxt[maxm<<1], to[maxm<<1], cap[maxm<<1], p = 1;
 
 void add(int x, int y, int c) {
 	nxt[++p] = head[x];
+	head[x] = p;
 	to[p] = y;
 	cap[p] = c;
-	head[x] = p;
 	nxt[++p] = head[y];
+	head[y] = p;
 	to[p] = x;
 	cap[p] = 0;
-	head[y] = p;
 }
 
 bool bfs(int s, int t) {
-	bool res = false;
 	std::queue<int> q;
 	q.push(s);
 	memset(level, 0, sizeof(level));
@@ -25,7 +24,6 @@ bool bfs(int s, int t) {
 	while(not q.empty()) {
 		int u = q.front();
 		q.pop();
-		if(u == t) res = true;
 		for(int i=head[u];i;i=nxt[i]) {
 			int v = to[i];
 			if(not level[v] and cap[i]) {
@@ -34,7 +32,7 @@ bool bfs(int s, int t) {
 			}
 		}
 	}
-	return res;
+	return level[t];
 }
 
 int dfs(int u, int t, int c) {
@@ -54,7 +52,7 @@ int dfs(int u, int t, int c) {
 	return 0;
 }
 
-int maxflow(int s, int t) {
+long long max_flow(int s, int t) {
 	long long res = 0;
 	while(bfs(s, t)) {
 		memcpy(Head, head, sizeof(Head));
@@ -99,7 +97,7 @@ int main(const int, const char **) {
 			if(i != j)
 				add(i, j, know[i][j] << 1);
 	std::cerr << "SUM !" << ans << std::endl;
-	ans -= maxflow(S, T);
+	ans -= max_flow(S, T);
 	std::cout << ans << std::endl;
 }
 
