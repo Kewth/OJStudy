@@ -3,7 +3,7 @@
 ## Bfs
 
 1. emm...                                                   (0)
-1. Forget to pop-up the element in queue in BFS.            (1)
+1. Forget to pop-up the element in queue in BFS.            (2)
 1. Push node-u into the queue instead of node-v in BFS.     (1)
 
 ## Dfs
@@ -18,6 +18,8 @@
 1. Use the edge whose capacity is zero.                     (2)
 1. Push node-s into the queue instead of node-v in BFS.     (1)
 1. Forget to copy head[] after each BFS.                    (1)
+1. Forget to use Current Arc Optimization.                  (1)
+1. After dinic, not realize cap[] is chaned.                (1)
 
 ## Bipartite graph
 
@@ -42,5 +44,6 @@
 
 1. emm...                                                   (0)
 1. Use memset(a, 0, sizeof(**0**)) incorrectly.             (1)
+1. After backuping a array, forget to copy it back.         (1)
 
 
