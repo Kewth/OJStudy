@@ -42,6 +42,11 @@
   incorrectly.                                              (1)
 1. Forget to record whether a node is in current path.      (0)
 
+## DP
+
+1. emm...                                                   (0)
+1. Initialize dp array incorrectly.                         (1)
+
 ## Other
 
 1. emm...                                                   (0)
