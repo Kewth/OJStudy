@@ -10,11 +10,13 @@
 1. Only get n point-value in DFT but answer need n + m.     (1)
 1. Print extra suffix zero while printing answer.           (2)
 1. Forget to Convert answer to integer while printing       (2)
-1. Forget to divide each coefficient by N after DFT.        (1)
+1. Forget to divide each coefficient by N after DFT.        (2)
 1. Make mistakes when calulating r array which is used for
   Rader sorting.                                            (1)
 1. In Butterfly Operation, multiply $ W_n $ instead of
   $ W_n^k $.                                                (1)
+1. Calculate R array error in Rader sort.                   (1)
+1. Forget to run `W *= Wn` in every range in FFT            (1)
 
 ## LinkCutTree
 
