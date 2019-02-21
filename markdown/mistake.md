@@ -16,7 +16,7 @@
 1. In Butterfly Operation, multiply $ W_n $ instead of
   $ W_n^k $.                                                (1)
 1. Calculate R array error in Rader sort.                   (1)
-1. Forget to run `W *= Wn` in every range in FFT            (1)
+1. Forget to run `W *= Wn` in every range in FFT            (2)
 
 ## LinkCutTree
 
@@ -47,4 +47,7 @@
   should be minus 0.5 when the number is less than zero.    (1)
 1. Forget to break after some cases in 'switch'             (1)
 1. Forget to initialize variables before use it.            (1)
+1. If printing double by std::cout and not std::setprecision,
+  it'll use scientific natatoin like 6.2333e+7 which will be
+  inputed as 62333000 in special judge.                     (1)
 
