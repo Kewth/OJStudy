@@ -39,12 +39,12 @@
 ## Other
 
 1. emm...                                                   (0)
-1. While converting 'double' to 'int', forget to add 0.5.   (1)
+1. While converting 'double' to 'int', forget to add 0.5.   (2)
 1. After converting 'double' to 'int', the variable is still
   'double' and while printing it as answer, the 1000002 will
   be printed as 1e+6 and so on.                             (1)
 1. While adding 0.5 to convert 'double' to 'int', forget it
-  should be minus 0.5 when the number is less than zero.    (1)
+  should be minus 0.5 when the number is less than zero.    (2)
 1. Forget to break after some cases in 'switch'             (1)
 1. Forget to initialize variables before use it.            (1)
 1. If printing double by std::cout and not std::setprecision,
