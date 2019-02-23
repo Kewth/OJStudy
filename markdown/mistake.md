@@ -32,9 +32,33 @@
 
 1. emm...                                                   (0)
 1. While rotating, forget to consider the case where son is
-  empty.                                                    (1)
+  empty.                                                    (2)
 1. While rotating, set grandprant's son to THIS's father
   instead of THIS itself.                                   (1)
+1. Before rotating, forget pushing down the son when the lazy
+  tag related to the value.                                 (1)
+1. Forget splay the node which was inserted just now to top.(2)
+1. Forget update after inserting a node.                    (2)
+1. While pushing down, forget to consider the case where son is
+  empty.                                                    (1)
+1. While geting Kth and going to recursive the right_son which
+  should return right_son's Kth(k - left_size - times) instead
+  of the right_son's Kth(k) or Kth(k - left_size).          (3)
+1. After call kth or splay, forget set the pointer to the new
+  top node.                                                 (1)
+1. After split a range and modify it, unable to update its
+  father node and its father's father node. In fact, the range
+  is supposed to be **READ ONLY**.                          (1)
+1. Forget pushing down lazy tag before geting Kth or inserting
+  a node.                                                   (1)
+
+### NOTE
+
+1. To insert a range instead of only a node, the range is
+  supposed to be build before inserting.                    (1)
+1. To delete a range instead of only a node, the range is
+  supposed to be a subtree and be deleted directly by seting
+  its father node's son to NULL.                            (1)
 
 ## Other
 
