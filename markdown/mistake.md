@@ -105,5 +105,5 @@
 ### class
 
 1. While calling a constructor, the member variables won't be
-  initialized(e. Splay's son node won't be seted to NULL).  (1)
+  initialized(e. Splay's son node won't be seted to NULL).  (2)
 
