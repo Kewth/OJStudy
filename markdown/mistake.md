@@ -102,3 +102,8 @@
   it'll use scientific natatoin like 6.2333e+7 which will be
   inputed as 62333000 in special judge.                     (1)
 
+### class
+
+1. While calling a constructor, the member variables won't be
+  initialized(e. Splay's son node won't be seted to NULL).  (1)
+
