@@ -51,6 +51,7 @@
 
 1. While pushing down, forget to consider the case where son is
   empty.                                                    (1)
+1. After pushing down, forget to reset current lazy tag.    (1)
 
 ### Kth
 
