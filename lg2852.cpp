@@ -1,3 +1,11 @@
+#if 0
+2019.02.27
+
+二分最长的长度再判断是否有 k 个长度为 mid 的子串。
+子串的统计可以用后缀数组，但是我懒。
+计算所有长为 mid 的子串的哈希值放在 std::map 统计即可。
+
+#endif
 #include <bits/stdc++.h>
 
 int input() { int res; scanf("%d", &res); return res; }
