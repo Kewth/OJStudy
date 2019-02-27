@@ -76,6 +76,12 @@
   supposed to be a subtree and be deleted directly by seting
   its father node's son to NULL.                            (1)
 
+## Hash
+
+1. emm...                                                   (0)
+1. Removing a prefix which is $ base^k $ from hash numbe
+  instead of removing $ base^k num_i $ in which $ num_i $
+  is the prefix to be removed.                              (1)
 ## Other
 
 1. emm...                                                   (0)
