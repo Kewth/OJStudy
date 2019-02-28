@@ -83,6 +83,18 @@
   instead of removing $ base^k num_i $ in which $ num_i $
   is the prefix to be removed.                              (1)
 
+## Simulated annealing
+
+1. emm...                                                   (0)
+1. If the new answer is not available, it should not be
+  `INT_MAX` or `INT_MIN` because it'll make it impossible that
+  change to the new answer.                                 (1)
+
+## Half search
+
+1. emm...                                                   (0)
+1. Search the same half incorrectly.                        (1)
+
 ## Other
 
 1. emm...                                                   (0)
@@ -103,6 +115,8 @@
 ### variables
 
 1. Forget to initialize variables before use it.            (1)
+1. Forget to initialize variables if there're multiple sets of
+  data.                                                     (1)
 
 ### output
 
@@ -114,4 +128,9 @@
 
 1. While calling a constructor, the member variables won't be
   initialized(e. Splay's son node won't be seted to NULL).  (2)
+
+### inf
+
+1. If INF will be used to clac, it should not be seted to
+  `INT_MIN` or `INT_MAX` in case of overflow.               (1)
 
