@@ -95,6 +95,10 @@
 1. emm...                                                   (0)
 1. Search the same half incorrectly.                        (1)
 
+## linked list
+
+1. emm...                                                   (0)
+
 ## Other
 
 1. emm...                                                   (0)
@@ -134,3 +138,16 @@
 1. If INF will be used to clac, it should not be seted to
   `INT_MIN` or `INT_MAX` in case of overflow.               (1)
 
+### if
+
+1. Like this:                                               (1)
+
+```cpp
+if(FUCK_YOU)
+	FUCK_him();
+	FUCK_her();
+```
+
+### STL
+
+1. vector.clear() won't free its memory.                    (1)
