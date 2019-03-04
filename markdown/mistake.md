@@ -40,12 +40,22 @@
   empty.                                                    (2)
 1. While rotating, set grandprant's son to THIS's father
   instead of THIS itself.                                   (1)
+1. After rotating, forget updating the node.                (1)
 
 ### insert
 
-1. Forget splay the node which was inserted just now to top.(2)
-1. Forget update after inserting a node.                    (3)
+1. Forget to splay the node which was inserted to top.      (2)
+1. Forget to update after inserting a node.                 (3)
 1. Forget pushing down lazy tag before inserting a node.    (1)
+
+### erase
+
+1. Forget to update after erasing.                          (1)
+
+### update
+
+1. If the node maintenance sum and times at the same time, the
+  sum will be seted to `val * times` instead of `val` only. (1)
 
 ### push down
 
@@ -56,9 +66,9 @@
 ### Kth
 
 1. Forget pushing down lazy tag before geting Kth.          (1)
-1. While geting Kth and going to recursive the right_son which
-  should return right_son's Kth(k - left_size - times) instead
-  of the right_son's Kth(k) or Kth(k - left_size).          (4)
+1. While geting Kth and going to recursive the rightson which
+  should return rightson's Kth(k - leftsize - times) instead
+  of the rightson's Kth(k) or Kth(k - leftsize).          (4)
 1. After call kth or splay, forget set the pointer to the new
   top node.                                                 (1)
 
@@ -67,6 +77,14 @@
 1. After split a range and modify it, unable to update its
   father node and its father's father node. In fact, the range
   is supposed to be **READ ONLY**.                          (1)
+1. Before geting a range(l, r), call range(l, r) directly
+  instead of range(l + 1, r + 1) because of the empty node. (1)
+1. NOTE: If the node maintenance the times, range(l, r) may not
+  be the Kth(r + 1)'s leftson. For example:
+
+	(times=1, ...) (times=0, ...) (times=2, ...).
+
+  Range(2, 2) will retuen Kth(3)'s leftson, the second node.
 
 ### NOTE
 
@@ -136,7 +154,7 @@
 ### inf
 
 1. If INF will be used to clac, it should not be seted to
-  `INT_MIN` or `INT_MAX` in case of overflow.               (1)
+  `INT_MIN` or `INT_MAX` in case of overflow.               (2)
 
 ### if
 
