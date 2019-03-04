@@ -108,3 +108,8 @@
 1. While calling a constructor, the member variables won't be
   initialized(e. Splay's son node won't be seted to NULL).  (2)
 
+### Module
+
+1. NOTE: The number should be **always** positive, even if you
+  make the number += mod **at the end**.                    (1)
+
