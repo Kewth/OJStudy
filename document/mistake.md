@@ -117,6 +117,12 @@
 
 1. emm...                                                   (0)
 
+## Bit operation
+
+1. emm...                                                   (0)
+1. Use `1 << x` but the 'x' is greater than 32.             (1)
+1. Write `if(x >> k & 1)` as `if(x >> k)` incorrectly.      (1)
+
 ## Other
 
 1. emm...                                                   (0)
