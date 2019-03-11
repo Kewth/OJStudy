@@ -128,6 +128,12 @@
 1. emm...                                                   (0)
 1. While inserting `x`, forget to consider its binarybit.   (1)
 
+## Tree array
+
+1. emm...                                                   (0)
+1. while converting a common array to tree array, call
+  `x -= lowbit(x)` instead of `...+=...` each time.         (1)
+
 ## Other
 
 1. emm...                                                   (0)
