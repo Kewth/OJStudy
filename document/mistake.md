@@ -117,6 +117,17 @@
 
 1. emm...                                                   (0)
 
+## Bit operation
+
+1. emm...                                                   (0)
+1. Use `1 << x` but the 'x' is greater than 32.             (1)
+1. Write `if(x >> k & 1)` as `if(x >> k)` incorrectly.      (1)
+
+## (xian) (xing) (ji)
+
+1. emm...                                                   (0)
+1. While inserting `x`, forget to consider its binarybit.   (1)
+
 ## Other
 
 1. emm...                                                   (0)
@@ -174,3 +185,13 @@ if(FUCK_YOU)
 ### STL
 
 1. vector.clear() won't free its memory.                    (1)
+
+### unsigned
+
+1. An error code: `for(unsigned k=maxk-1; k>=0; k--)`.      (1)
+
+### reference variables
+
+1. An error code: `int &x = nodex[k], y = nodey[k]` which is
+  supposed to modify the value of `nodey[k]`.               (1)
+
