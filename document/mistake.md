@@ -97,9 +97,13 @@
 ## Hash
 
 1. emm...                                                   (0)
-1. Removing a prefix which is $ base^k $ from hash numbe
+1. Removing a prefix which is $ base^k $ from hash number
   instead of removing $ base^k num_i $ in which $ num_i $
   is the prefix to be removed.                              (1)
+1. Removing a prefix which is $ base^k hash_i $ from hash
+  number instead of removing $ base^k num_i $ in which
+  $ num_i $ is the prefix to be removed.                    (1)
+1. Forget to add $ num_i $ into hash number.                (1)
 
 ## Simulated annealing
 
@@ -133,6 +137,12 @@
 1. emm...                                                   (0)
 1. while converting a common array to tree array, call
   `x -= lowbit(x)` instead of `...+=...` each time.         (1)
+
+## Mo team
+
+1. emm...                                                   (0)
+1. While getting the answer, output it directly instead of take
+  it into Array `ans`.                                      (1)
 
 ## Other
 
