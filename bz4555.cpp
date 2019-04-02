@@ -60,12 +60,6 @@ int main() {
         f[i] = power(mod - 1, i) * power(jie, -1) % mod;
         g[i] = power(i, n + 1) * power(jie, -1) % mod;
     }
-	for(int i = 0; i < nm; i ++)
-		std::clog << f[i] << ' ';
-	std::clog << std::endl;
-	for(int i = 0; i < nm; i ++)
-		std::clog << g[i] << ' ';
-	std::clog << std::endl;
     NTT(f, nm, 1);
     NTT(g, nm, 1);
     for(int i = 0; i < nm; i++)
