@@ -1,6 +1,6 @@
 #pragma GCC optimize(3)
 #if 0
-date
+2019.04.03
 
 先设 DP 式 f[i][x] 表示用 i 个数和为 x 的方案数。
 将 f[i] 看做多项式，那么转移就是与 f[1] 的卷积，
