@@ -11,7 +11,7 @@ E(minT) = \sum_{k=1}^{INF} p(S - T)^{k-1} (1 - p(S - T)) k ，
 化简得 E(minT) = 1 / (1 - p(S - T)) 。
 考虑求 p(S) ，易得 p(S) = \sum_{T|S=S} P(T) ，
 其中 P(T) 表示输入的概率。
-那么可以将 P 做快速莫比乌斯变换得到 p 。
+那么可以将 P 做快速莫比乌斯变换或者 FWT 得到 p 。
 #endif
 #include <bits/stdc++.h>
 
