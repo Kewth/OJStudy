@@ -4,7 +4,7 @@
 对于每个 k 统计 sum(x) == k 的个数即可，
 记这个个数是 tot(k) , 那 k 对答案的贡献就是 k^tot(k) ，
 统计的方法枚举 n 的每位，以类似数位 DP 的思路去统计。
-注意 tot 出现在答案的指数，不能取模
+注意 tot 出现在答案的指数，不能取模（其实可以取模，见 lg4317_2.cpp）
 #endif
 #include <bits/stdc++.h>
 
@@ -41,7 +41,7 @@ int main() {
 		C[i][0] = 1;
 	for(int i = 1; i < maxk; i ++)
 		for(int j = 1; j <= i; j ++)
-			C[i][j] = C[i - 1][j] + C[i - 1][j - 1]; // 不能取模
+			C[i][j] = C[i - 1][j] + C[i - 1][j - 1];
 	get_tot(n);
 	lolong ans = 1;
 	/* for(unsigned k = 1; k < maxk; k ++) */
