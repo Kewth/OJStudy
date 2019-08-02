@@ -27,7 +27,7 @@ inline int id(lolong x) {
 lolong S(lolong i, int j) {
 	if(prime[j] > i) return 0;
 	lolong res = g[id(i)] - sg[j] + mod;
-	for(int k = j + 1; k <= p and prime[k] * prime[k] <= i; k ++) {
+	for(int k = j + 1; k <= p and 1ll * prime[k] * prime[k] <= i; k ++) {
 		int e = 1;
 		lolong pr = prime[k];
 		while(pr <= i) {
