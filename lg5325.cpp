@@ -1,6 +1,7 @@
 #if 0
-date +%Y.%m.%d
+2019.08.02
 
+min25 模板。
 #endif
 #include <cstdio>
 #include <vector>
