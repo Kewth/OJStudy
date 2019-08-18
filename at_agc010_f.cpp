@@ -52,8 +52,11 @@ int main() {
 	for(int u = 1; u <= n; u ++)
 		if(not vis[u])
 			dfs(u);
+	int last;
 	for(int u = 1; u <= n; u ++)
 		if(win[u])
-			printf("%d ", u);
-	puts("");
+			last = u;
+	for(int u = 1; u <= n; u ++)
+		if(win[u])
+			printf("%d%c", u, " \n"[u == last]);
 }
