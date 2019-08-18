@@ -1,5 +1,5 @@
 #if 0
-date +%Y.%m.%d
+2019.08.12
 
 朴素 DP 设 f[i][j] 表示 n, m 分别为 i, j 时的答案。
 考虑每个 f[i][j] 对最后 f[n][m] 的贡献，
@@ -21,6 +21,7 @@ inline int input() { int x; scanf("%d", &x); return x; }
 
 const int maxn = 500005, mod = 998244353;
 lolong fac[maxn << 1];
+lolong invfac[maxn << 1];
 
 inline lolong power(lolong x, int k) {
 	if(k < 0) k += mod - 1;
@@ -34,7 +35,7 @@ inline lolong power(lolong x, int k) {
 }
 
 inline lolong C(int n, int m) {
-	return fac[n] * power(fac[m], -1) % mod * power(fac[n - m], -1) % mod;
+	return fac[n] * invfac[m] % mod * invfac[n - m] % mod;
 }
 
 int main() {
@@ -42,9 +43,12 @@ int main() {
 	fac[0] = 1;
 	for(int i = 1; i <= n + m; i ++)
 		fac[i] = fac[i - 1] * i % mod;
+	invfac[n + m] = power(fac[n + m], -1);
+	for(int i = n + m - 1; i >= 0; i --)
+		invfac[i] = invfac[i + 1] * (i + 1) % mod;
 	lolong ans = 0;
 	for(int i = 1; i <= n and i <= m; i ++)
-		debug("%lld\n", ans),
+		/* debug("%lld\n", ans), */
 		ans += C(i << 1, i) * C(n + m - (i << 1), n - i) % mod;
 	ans %= mod;
 	(ans *= power(2 * C(n + m, n) % mod, -1)) %= mod;
