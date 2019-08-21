@@ -51,9 +51,6 @@ void dijkstra(int n, int max) {
 }
 
 int main() {
-	freopen("present.in", "r", stdin);
-	freopen("present.out", "w", stdout);
-
 	int n = input(), m = input();
 	for(int i = 1; i <= n; i ++)
 		p[i] = input();
