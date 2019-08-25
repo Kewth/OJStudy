@@ -1,7 +1,7 @@
 #if 0
-date +%Y.%m.%d
+2019.08.25
 
-题解先咕着。
+开若干个权值线段树记对应颜色出现位置，线段树合并维护即可。
 #endif
 #include <cstdio>
 #include <cassert>
