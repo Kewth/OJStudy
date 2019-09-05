@@ -9,6 +9,7 @@
 #include <cstdio>
 #include <set>
 #include <algorithm>
+#include <climits>
 #define debug(...) fprintf(stderr, __VA_ARGS__)
 
 typedef long long lolong;
@@ -58,8 +59,6 @@ lolong check(int l, int r) {
 }
 
 int main() {
-	freopen("Kth.in", "r", stdin);
-	freopen("Kth.out", "w", stdout);
 	int n = input();
 	lolong k = input();
 	int l = INT_MAX, r = INT_MIN;

@@ -70,8 +70,6 @@ inline bool cmp(Query a, Query b) {
 }
 
 int main() {
-	freopen("color.in", "r", stdin);
-	freopen("color.out", "w", stdout);
 	int n = input(), q = input();
 	for(int i = 1; i <= n; i ++)
 		a[i] = input();

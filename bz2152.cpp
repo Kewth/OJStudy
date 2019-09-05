@@ -93,8 +93,6 @@ int gcd(int a, int b) {
 }
 
 int main() {
-	freopen("keke.in", "r", stdin);
-	freopen("keke.out", "w", stdout);
 	int n = input();
 	for(int i = 1; i < n; i ++) {
 		int u = input(), v = input(), w = input();
