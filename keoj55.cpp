@@ -5,12 +5,15 @@
 获得成就：平衡树一遍过
 虽然还是写了 40min+ 。
 
+update: 数据水了，后来发现平衡树还是写挂了。。。
+
 然后发现 IO 是真的耗时，
 源程序 470ms -> IO 优化 -> 270 ms 。
 我去 IO 一个数顶的上 Treap 一个 O(log) 的操作。。。。
 #endif
 #include <cstdio>
 #include <cstdlib>
+#define debug(...) fprintf(stderr, __VA_ARGS__)
 
 const int _I_Buffer_Size(1 << 23);
 char _I_Buffer[_I_Buffer_Size];
@@ -87,6 +90,16 @@ struct Treap {
         return rt->kth(k - lt->size - times);
     }
 
+	void print(int d = 0) {
+		if(lt != null)
+			lt -> print(d + 1);
+		for(int i = 0; i < d; i ++)
+			debug(" ");
+		debug("v=%d t=%d s=%d w=%d\n", val, times, size, weight);
+		if(rt != null)
+			rt -> print(d + 1);
+	}
+
     Treap(int val, int times) : val(val), times(times), size(times), weight(rand()), lt(null), rt(null) {}
 };
 
@@ -109,11 +122,12 @@ Treap *merge(Treap *a, Treap *b) {
 
 int main() {
     fread(_I_Buffer, 1, _I_Buffer_Size, stdin);
-    null = new Treap(0, 0);
+    null = new Treap(- 1000000000, 0);
 
     int q = input();
-    Treap *T = new Treap(0, 0);
+    Treap *T = new Treap(- 1000000000, 0);
 
+	int TOT = 0;
     while (q--) {
         int t = input(), x = input();
 
@@ -123,15 +137,21 @@ int main() {
             b->split(x, b, c);
 
             if (t == 1) {
+				TOT ++;
                 if (b == null)
                     b = new Treap(x, 1);
-                else
+                else {
                     b->times++;
+                    b->size++;
+				}
             } else {
+				TOT --;
                 if (b->times == 1)
                     b = null;
-                else
+                else if (b != null) {
                     b->times--;
+                    b->size--;
+				}
             }
 
             T = merge(a, merge(b, c));
@@ -160,6 +180,9 @@ int main() {
             putint(b->kth(1));
             T = merge(a, b);
         }
+
+		/* T -> print(); */
+		/* debug("%d %d\n", T -> size, TOT); */
     }
 
     fwrite(_O_Buffer, 1, _O_pos - _O_Buffer, stdout);
