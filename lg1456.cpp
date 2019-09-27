@@ -1,7 +1,7 @@
 #if 0
-date +%Y.%m.%d
+2019.09.24
 
-题解先咕着。
+用左偏树维护一个朋友集合即可。
 #endif
 #include <cstdio>
 #include <algorithm>
