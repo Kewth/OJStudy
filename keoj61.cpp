@@ -25,7 +25,6 @@ inline int input() { int x; scanf("%d", &x); return x; }
 const int maxn = 202, mod = 1000000007;
 char s[maxn];
 lolong f[maxn][maxn][4][101];
-lolong g[maxn][4][101];
 int power10[10];
 
 int main() {
