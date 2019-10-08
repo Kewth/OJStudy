@@ -1,1 +1,0 @@
-../../test/2019/10/06/triangle.cpp
