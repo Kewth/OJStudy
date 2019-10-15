@@ -1,5 +1,5 @@
 #if 0
-date +%Y.%m.%d
+2019.10.08
 
 IO 优化，感谢 @CYJian 提供模板。
 #endif
