@@ -54,7 +54,7 @@ int main() {
 			g[m] = w[m] - 1;
 		}
 
-		for(int i = 1; i <= pp; i ++)
+		for(int i = 1; prime[i] <= s; i ++)
 			for(int j = m; j && prime[i] <= w[j] / prime[i]; j --)
 				g[j] -= g[id(w[j] / prime[i])] - (i - 1);
 
