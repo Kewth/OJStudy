@@ -13,7 +13,7 @@ ANS = \sum_{i=1}^n \sum_{d|x} G(d) H(d/x) = \sum_{d=1}^n G(d) S(n/d)
 
 F(p^m) = \sum_{i=0}^m G(p^i) H(p^(m-i))       (1)
 p^k = \sum_{i=0}^m G(p^i) p^(km-ki)           (1) -> (2)
-p^k = \sum_{i=0}^{m+1} G(p^i) p^(km+k-ki)     (2) -> (3)
+p^k = \sum_{i=0}^{m+1} G(p^i) p^(km+k-ki)     (1) -> (3)
 p^(2k) = \sum_{i=0}^m G(p^i) p^(km+k-ki)      (2) -> (4)
 p^k - p^(2k) = G(p^(m+1))                     (3) - (4) -> (5)
 
