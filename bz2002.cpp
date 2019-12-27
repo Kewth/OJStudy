@@ -111,11 +111,11 @@ void split(int now, int x) {
 	splay(now, 0);
 }
 
-
 void link(int now, int x) {
 	makeroot(now);
 	self.faid = x;
 }
+
 void cut(int now, int x) {
 	split(now, x);
 	push_down(now);
