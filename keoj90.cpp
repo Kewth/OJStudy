@@ -1,7 +1,7 @@
 #if 0
-date +%Y.%m.%d
+2019.11.15
 
-题解先咕着。
+bfs 最短路，必须用 vector 增加 cache 命中率。
 #endif
 #include <queue>
 #include <cstdio>
