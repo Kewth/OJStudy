@@ -113,6 +113,6 @@ int main(int, char **) {
 		add(s, y, a, false);
 		add(y, t, b, false);
 	}
-	std::cerr << ans << std::endl;
+	/* std::cerr << ans << std::endl; */
 	std::cout << ans - max_flow(s, t) << std::endl;
 }
