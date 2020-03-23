@@ -77,12 +77,18 @@ int main () {
 		}
 		for (int i = 1; i <= n; i ++)
 			(f[o][sg[o][i]] += po[i]) %= mod;
-		FWT(f[o], len);
+		/* FWT(f[o], len); */
 	}
 
-	for (int i = 0; i < len; i ++)
-		g[i] = f[0][i] * f[1][i] % mod * f[2][i] % mod;
-	iFWT(g, len);
+	ll ans = 0;
+	for (int i = 0; i < 500; i ++)
+		for (int j = 0; j < 500; j ++)
+			(ans += f[0][i] * f[1][j] % mod * f[2][i ^ j]) %= mod;
+	printf("%lld\n", ans);
 
-	printf("%lld\n", g[0]);
+/* 	for (int i = 0; i < len; i ++) */
+/* 		g[i] = f[0][i] * f[1][i] % mod * f[2][i] % mod; */
+/* 	iFWT(g, len); */
+
+/* 	printf("%lld\n", g[0]); */
 }
