@@ -6,6 +6,7 @@
 那么就会转移到 k ^ sg[v2] ^ ... ，其中 k 是 v1 子树内可以转移到的任意一个状态。
   那么用 01 Tire 维护每个子树能转移到的局面，u 节点的 Trie 就是儿子的 Trie 异或一个值后
 合并的结果。求出 u 子树的 SG 值只需要在 Trie 树上二分找到 mex 。
+  一个小 trick: 树要以编号最小的点为根，按编号顺序枚举的时候碰到一个点可以直接作为根。
 #endif
 #include <cstdio>
 #include <algorithm>
@@ -18,7 +19,7 @@ struct {
 	inline operator int () { int x; return scanf("%d", &x), x; }
 } read;
 
-const int maxn = 100005, maxk = 31;
+const int maxn = 100005, maxk = 20;
 std::vector<int> G[maxn];
 bool vis[maxn];
 int sg[maxn];
@@ -31,7 +32,8 @@ int pp;
 #define rt pool[self.rti]
 int tr[maxn];
 
-void push (int now, int k) {
+inline void push (int now, int k) {
+	if (!self.tag) return;
 	if (self.tag >> k & 1) {
 		std::swap(self.lti, self.rti);
 	}
@@ -40,49 +42,41 @@ void push (int now, int k) {
 	self.tag = 0;
 }
 
-void update (int now) {
-	self.full = lt.full and rt.full;
-}
-
 void merge (int &now, int an, int k) {
-	if (!now) return now = an, void();
-	if (!an) return;
-	if (k < 0) return;
+	if (!now or pool[an].full) return now = an, void();
+	if (!an or self.full) return;
 	push(now, k);
 	push(an, k);
 	merge(self.lti, pool[an].lti, k - 1);
 	merge(self.rti, pool[an].rti, k - 1);
-	update(now);
+	self.full = lt.full and rt.full;
 }
 
-int newlain (int k, int x) {
-	int now = ++ pp;
-	self = {0, 0, 0, 0};
-	if (k < 0) return self.full = 1, now;
-	if (x >> k & 1)
-		self.rti = newlain(k - 1, x);
-	else
-		self.lti = newlain(k - 1, x);
-	return now;
+inline int newlain (int x) {
+	int las = ++ pp;
+	pool[las].full = 1;
+	for (int k = 0; k < maxk; k ++) {
+		int now = ++ pp;
+		self = {0, 0, 0, 0};
+		if (x >> k & 1) self.rti = las;
+		else self.lti = las;
+		las = now;
+	}
+	return las;
 }
 
-int find (int now, int k) {
-	if (k < 0 or !now) return 0;
-	push(now, k);
-	if (!lt.full) return find(self.lti, k - 1);
-	return find(self.rti, k - 1) | (1 << k);
-}
-
-int Root;
-void predfs (int u) {
-	vis[u] = 1;
-	Root = std::min(Root, u);
-	for (int v : G[u])
-		if (!vis[v])
-			predfs(v);
+int find (int now) {
+	int res = 0;
+	for (int k = maxk - 1; now and k >= 0; k --) {
+		push(now, k);
+		if (!lt.full) now = self.lti;
+		else now = self.rti, res ^= 1 << k;
+	}
+	return res;
 }
 
 void game (int u, int fa) {
+	vis[u] = 1;
 	int Sg = 0;
 	for (int v : G[u])
 		if (v != fa) {
@@ -90,7 +84,7 @@ void game (int u, int fa) {
 			Sg ^= sg[v];
 		}
 
-	tr[u] = newlain(maxk - 1, Sg);
+	tr[u] = newlain(Sg);
 
 	for (int v : G[u])
 		if (v != fa) {
@@ -98,7 +92,7 @@ void game (int u, int fa) {
 			merge(tr[u], tr[v], maxk - 1);
 		}
 
-	sg[u] = find(tr[u], maxk - 1);
+	sg[u] = find(tr[u]);
 	/* debug("%d : %d\n", u, sg[u]); */
 }
 
@@ -119,10 +113,8 @@ int main () {
 		int Sg = 0;
 		for (int i = 1; i <= n; i ++)
 			if (!vis[i]) {
-				Root = i;
-				predfs(i);
-				game(Root, 0);
-				Sg ^= sg[Root];
+				game(i, 0);
+				Sg ^= sg[i];
 			}
 
 		if (Sg) puts("Alice");
