@@ -19,6 +19,11 @@
               = n sum(F[i]) + H[0] sum(P[j]) (n - 1)
               = n sum(F[i]) + (n - 1) H[0]
   那么 sum(F[i]) 的值就可以通过 H 简单求出了。
+
+  UPDATE:
+  学到许多，由于 H[i] = A H[i - 1] + B H[i] + C H[i + 1] 满足 A + B + C = 1 ，虽然 H 不能
+直接递推，但是差分后 H[i] - H[i - 1] 是可以直接递推的，并且在这里它递推的分母是在预处理范
+围内的值，因此可以优化到 O(m + logP) 。
 #endif
 #include <cstdio>
 #include <algorithm>
