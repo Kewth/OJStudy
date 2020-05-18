@@ -27,7 +27,13 @@ int a[maxn][maxn];
 
 int main() {
 	int k = read;
-	int n = k == 1 ? 1 : (k + 3) >> 2 << 1;
+	int n = (k + 3) >> 2 << 1;
+
+	if(k == 1) {
+		puts("1");
+		puts("1");
+		return 0;
+	}
 
 	int c = 0;
 	for(int i = 0; i < n; i ++) {
