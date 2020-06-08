@@ -5,6 +5,10 @@
   求出两边得到每个数的概率，其生成函数显然是一个多项式快速幂的形式，考虑其封闭形式，
 可以用多项式求逆代替多项式快速幂。
   不知道是不是因为常数，只能得 85pts 。
+
+  UPDATE on 2020.06.08:
+  妈的傻逼了，(1 - x)^n 的逆元就是在做高维前缀和，直接拿组合数算就行了，求逆是没有
+必要的。
         ▁▃▄▄▄▃▃▃▃▄▶
       ▗▇▀▔    ▔▔▔▔
      ▄▛   ▃▅━━■▄▂
@@ -81,30 +85,8 @@ inline void IDFT(pit a, int n) {
 		(a[i] *= invn) %= mod;
 }
 
-inline void polyinv(pit a, int n) {
-	static poly res, tmp;
-	res[0] = power(a[0], -1);
-	std::fill(res + 1, res + (n << 1), 0);
-
-	for(int m = 2; m <= n; m <<= 1) {
-		std::copy(a, a + m, tmp);
-		std::fill(tmp + m, tmp + (m << 1), 0);
-
-		DFT(tmp, m << 1);
-		DFT(res, m << 1);
-		for(int i = 0; i < (m << 1); i ++)
-			(res[i] *= 2 + mod - res[i] * tmp[i] % mod) %= mod;
-		IDFT(res, m << 1);
-
-		std::fill(res + m, res + (m << 1), 0);
-	}
-
-	std::copy(res, res + n, a);
-}
-
 const int maxn = 1000005;
-ll fac[maxn], ifac[maxn];
-ll inv[maxn];
+ll fac[maxn << 1], ifac[maxn << 1];
 
 inline ll C (int n, int m) {
 	if (n < m) return 0;
@@ -118,10 +100,6 @@ void combinator_init (int n) {
 	ifac[n] = power(fac[n], -1);
 	for (int i = n; i; i --)
 		ifac[i - 1] = ifac[i] * i % mod;
-
-	inv[1] = 1;
-	for (int i = 2; i <= n; i ++)
-		inv[i] = (mod - mod / i) * inv[mod % i] % mod;
 }
 
 
@@ -132,9 +110,10 @@ void getf (pit f, int n, int s) {
 	std::fill(A, A + len, 0);
 	std::fill(B, B + len, 0);
 	for (int i = 0; i <= n; i ++)
-		B[i * s] = A[i] = i & 1 ? mod - C(n, i) : C(n, i);
+		B[i * s] = i & 1 ? mod - C(n, i) : C(n, i);
 	B[n * s] = 0;
-	polyinv(A, len >> 1);
+	for (int i = 0; i <= n * s; i ++)
+		A[i] = C(n + i - 1, i);
 	std::fill(A + n * (s - 1) + 1, A + len, 0);
 	DFT(A, len);
 	DFT(B, len);
@@ -149,7 +128,7 @@ void getf (pit f, int n, int s) {
 
 ll f[maxn], g[maxn];
 int main () {
-	combinator_init(1000000);
+	combinator_init(2000000);
 	int T = read;
 	while (T --) {
 		int n1 = read, s1 = read, n2 = read, s2 = read;
