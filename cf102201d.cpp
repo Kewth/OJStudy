@@ -36,10 +36,8 @@
 
 typedef long long ll;
 
-struct _{
+struct {
 	inline operator int () { int x; return scanf("%d", &x), x; }
-	inline operator ll () { ll x; return scanf("%lld", &x), x; }
-	template<class T> inline void operator () (T &x) { x = *this; }
 } read;
 
 const int maxn = 250005, inf = 1000000000;
@@ -130,11 +128,6 @@ int solve (int n, int sx, int sy, int tx, int ty) {
 }
 
 int main () {
-#ifndef ONLINE_JUDGE
-	freopen("travel.in", "r", stdin);
-	freopen("travel.out", "w", stdout);
-#endif
-
 	int n = read, sx = read, sy = read, tx = read, ty = read;
 
 	for (int i = 1; i <= n; i ++) {
