@@ -8,6 +8,8 @@
 那么变成了 A 从 (0, m) 到 (n + 1, 1) B 从 (1, m + 1) 到 (n, 0) ，
 并且每个有交点的方案都能与上述的路径一一对应，反之亦然，
 故有交点的方案数就是 C(n + m, n - 1) C(n + m, m - 1) 。
+
+UPDATE: 这玩意就是不交路径计数。
 #endif
 #include <cstdio>
 #include <algorithm>
