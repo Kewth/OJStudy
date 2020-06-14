@@ -3,10 +3,9 @@
  * So, why not using clang++? :D
 
  * Date:
-  echo -n '  ' && date +%Y.%m.%d # Just Run this (Type !!sh in Vim).
+  2020.06.13
 
  * Solution:
-  To be updated after "Accept".
 
  * Digression:
 
