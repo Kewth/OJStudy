@@ -1,6 +1,8 @@
 #if 0
 2020.03.25
 
+* 分离算贡献，找关键变量（差值），构造组合意义
+
 不妨令 h[n + 1] = h[1] 。
 对于第 i 个答案，如果选了 h[i] 则会使原分数加一，选 h[i + 1] 会使新分数加一。
 最后的答案要满足新分数严格比原分数大，因此只需关心两者差值 dt 。
@@ -23,10 +25,7 @@ typedef long long ll;
 
 struct {
 	inline operator int () { int x; return scanf("%d", &x), x; }
-	inline operator ll () { ll x; return scanf("%lld", &x), x; }
 	template<class T> inline void operator () (T &x) { x = *this; }
-	template<class T, class ...A> inline void operator () (T &x, A &...a)
-	{ x = *this; this -> operator () (a...); }
 } read;
 
 const int maxn = 200005, mod = 998244353;
