@@ -6,11 +6,15 @@
   2020.06.05
 
  * Solution:
+ * 分离算贡献，代表元，主席树
+
   假设所有数都是质数，那么问题就是求区间的不同的数的乘积，很经典的做法是记一个 pre ，
-然后查询区间 [l, r] 内 pre < l 的数的乘积，用组合数维护即可。
+然后查询区间 [l, r] 内 pre < l 的数的乘积，用主席树维护即可。
+
   当然每个数未必是质数，lcm 会稍微有点不同，对于质数 p ，如果在最后答案的指数为 k ，
 那么答案要有 p^k ，而 p^1, p^2, ... p^k 都在区间中出现过。那么不妨把每个数 x 分解，
 对于每个因子分别记 pre 即可。
+
   本质上就是把 max(X) 转换为 sum([X >= i]) 。
 
  * Digression:
@@ -39,10 +43,6 @@ typedef std::pair<int, int> par;
 
 struct {
 	inline operator int () { int x; return scanf("%d", &x), x; }
-	inline operator ll () { ll x; return scanf("%lld", &x), x; }
-	template<class T> inline void operator () (T &x) { x = *this; }
-	template<class T, class ...A> inline void operator () (T &x, A &...a)
-	{ x = *this; this -> operator () (a...); }
 } read;
 
 const int maxa = 50005, maxn = 50005, mod = 1000000007;

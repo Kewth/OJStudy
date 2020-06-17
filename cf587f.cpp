@@ -33,8 +33,6 @@ id 在 [l, r] 之间的单词节点。
 typedef long long ll;
 struct {
 	inline operator int () { int x; return scanf("%d", &x), x; }
-	inline operator ll () { ll x; return scanf("%lld", &x), x; }
-	inline operator char () { char x[3]; return scanf("%s", x), *x; }
 } read;
 
 const int maxn = 100005, S = 340, B = 340;

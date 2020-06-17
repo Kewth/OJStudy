@@ -3,7 +3,7 @@
  * So, why not using clang++? :D
 
  * Date:
-  echo -n '  ' && date +%Y.%m.%d # Just Run this (Type !!sh in Vim).
+  2020.06.16
 
  * Solution:
  * 考虑边界，推导结论，子问题递归求解
