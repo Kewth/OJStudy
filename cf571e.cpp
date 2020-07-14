@@ -30,6 +30,8 @@
 中间出现各种不顺利的情况都能判无解。
 细节巨多，运算不当还可能爆 long long ，
 需要精准把握，比如在 exgcd 后求 x, y, a 的时候快速乘取模。
+
+update on 2020.07.14: 被更强地数据卡 WA 了，在找到原因之前先这样吧
 #endif
 #include <cstdio>
 #include <algorithm>
