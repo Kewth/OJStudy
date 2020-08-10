@@ -1,0 +1,1 @@
+../../nowcoder6766-a.cpp
