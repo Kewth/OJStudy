@@ -2,7 +2,7 @@
  * Author: Kewth
 
  * Date:
-  echo -n '  ' && date +%Y.%m.%d # Type "!!sh" in Vim.
+  2020.08.24
 
  * Solution:
   To be updated after "Accept".
