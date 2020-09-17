@@ -24,7 +24,6 @@ typedef __int128 lll;
 struct {
 	inline operator int () { int x; return scanf("%d", &x), x; }
 	inline operator ll () { ll x; return scanf("%lld", &x), x; }
-	{ x = *this; this -> operator () (a...); }
 } read;
 
 int s1[40], s2[40], s3[100];
