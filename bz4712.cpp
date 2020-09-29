@@ -16,7 +16,7 @@ typedef long long lolong;
 inline int input() { int x; scanf("%d", &x); return x; }
 
 const lolong inf = 1000000000000000000;
-struct DP { // 本质上是一个矩阵，因为封闭性可以压缩成两个值。
+struct DP { // 本质上是一个矩阵，因为封闭性可以压缩成两个值（分治结构）。
 	lolong f, g;
 	DP(lolong f = 0, lolong g = inf): f(f), g(g) { }
 };
