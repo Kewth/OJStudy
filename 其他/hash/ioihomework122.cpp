@@ -1,0 +1,1 @@
+../../ioihomework122.cpp
