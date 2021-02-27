@@ -5,7 +5,6 @@
   2020.08.24
 
  * Solution:
-  To be updated after "Accept".
 
  * Digression:
 
