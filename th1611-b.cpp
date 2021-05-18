@@ -10,6 +10,10 @@
 4) 存在 S 的子集 T 使得 T 满足 1) 或 2) 且 S / T 有合法方案。
 
 可据此枚举答案并 dfs 验证。
+
+update on 2021.05.18:
+
+我他妈下巴都惊掉了，这他妈不是 NOI2020 D2T1 的加强版？我他妈 19 年居然做过？
 #endif
 #include <cstdio>
 #define debug(...) fprintf(stderr, __VA_ARGS__)
