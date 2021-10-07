@@ -5,7 +5,7 @@
   2021.05.29
 
  * Solution:
-  In blog.
+  耳分解后用 splay 维护高度即可。
 
  * Digression:
   难度：8 / 12
@@ -110,26 +110,6 @@ void dfs (int u) {
 			low[u] = dfn[v], to[u] = v;
 }
 
-void solve (int u) {
-	for (int v : G[u])
-		if (fa[v] == u and !mark[v]) {
-			if (low[v] == dfn[u])
-				puts("No"), exit(0);
-			tp = 0;
-			int x = v;
-			while (dfn[x] != low[v])
-				tmp[++ tp] = x, mark[x] = 1, x = to[x];
-			tmp[0] = u;
-			if (cmprank(u, x))
-				for (int i = 1; i <= tp; i ++)
-					insertR(tmp[i - 1], tmp[i]);
-			else
-				for (int i = 1; i <= tp; i ++)
-					insertL(tmp[i - 1], tmp[i]);
-			solve(v);
-		}
-}
-
 int H[maxn], hp;
 void treedfs (int now) {
 	if (!now) return;
@@ -152,8 +132,25 @@ int main () {
 		tmp[++ tp] = x, mark[x] = 1;
 	for (int i = tp - 1; i; i --)
 		insertR(tmp[i + 1], tmp[i]);
-	for (int i = 1; i <= clk; i ++)
-		solve(map[i]);
+	for (int c = 1; c <= clk; c ++) {
+		int u = map[c];
+		for (int v : G[u])
+			if (fa[v] == u and !mark[v]) {
+				if (low[v] == dfn[u])
+					return puts("No"), 0;
+				tp = 0;
+				int x = v;
+				while (dfn[x] != low[v])
+					tmp[++ tp] = x, mark[x] = 1, x = to[x];
+				tmp[0] = u;
+				if (cmprank(u, x))
+					for (int i = 1; i <= tp; i ++)
+						insertR(tmp[i - 1], tmp[i]);
+				else
+					for (int i = 1; i <= tp; i ++)
+						insertL(tmp[i - 1], tmp[i]);
+			}
+	}
 	splay(1);
 	treedfs(1);
 	puts("Yes");
